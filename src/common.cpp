@@ -1,3 +1,4 @@
+// Copyright 2022 UNN-IASR
 #include "common.h"
 
 bool isContains(const char *str, char item) {
