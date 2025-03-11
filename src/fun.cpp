@@ -1,6 +1,8 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 
+#include <cmath>
+
 bool isContains(const char *str, char item) {
   while (*str != 0) {
     if (*str == item) return true;
@@ -57,4 +59,20 @@ unsigned int faStr2(const char *str) {
   return counter;
 }
 
-unsigned int faStr3(const char *str) { return 0; }
+unsigned int faStr3(const char *str) {
+  bool inWord = false;
+  int lengthSum = 0;
+  int wordsCount = 0;
+  while (*str != 0) {
+    if (inWord && isSpace(*str)) {
+      inWord = false;
+    }
+    if (!inWord && !isSpace(*str)) {
+      wordsCount++;
+      inWord = true;
+    }
+    if (inWord) lengthSum++;
+    str++;
+  }
+  return std::round((double)lengthSum / wordsCount);
+}
