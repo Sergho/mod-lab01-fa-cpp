@@ -1,3 +1,5 @@
+#include "common.h"
+
 bool isContains(const char *str, char item) {
   while (*str != 0) {
     if (*str == item) return true;
