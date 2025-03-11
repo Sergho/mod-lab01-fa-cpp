@@ -63,5 +63,5 @@ unsigned int faStr3(const char *str) {
     if (inWord) lengthSum++;
     str++;
   }
-  return std::round((double)lengthSum / wordsCount);
+  return std::round(static_cast<double>(lengthSum) / wordsCount);
 }
