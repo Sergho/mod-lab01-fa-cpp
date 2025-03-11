@@ -1,11 +1,13 @@
 set(header_path "${${PROJECT_NAME}_SOURCE_DIR}/include")
-set(header ${header_path}/fun.h)
-set(src fun.cpp)
+set(fun_header ${header_path}/fun.h)
+set(fun_src fun.cpp)
+set(common_header ${header_path}/common.h)
+set(common_src common.cpp)
 
 
 add_library(${PROJECT_NAME} SHARED
-  ${header}
-  ${src})
+  ${common_header} ${fun_header}
+  ${common_src} ${fun_src})
 target_include_directories(${PROJECT_NAME}
   PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
          ${${PROJECT_NAME}_SOURCE_DIR}/include)
